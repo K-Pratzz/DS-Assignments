@@ -8,8 +8,7 @@ class Queue:
         self.head = None
         self.tail = None
 
-    def enqueue(self, x): 
-        """Adds an element to the rear of the queue in O(1)."""
+    def enqueue(self, x):  #enquqe adds ele to the last
         new_node = Node(x)
         
         if self.tail is None:
@@ -18,10 +17,9 @@ class Queue:
         self.tail.next = new_node
         self.tail = new_node
 
-    def dequeue(self):
-        """Removes the front element and handles underflow safely."""
-        if self.is_empty():
-            print("Queue Underflow: Cannot dequeue from an empty queue.")
+    def dequeue(self): #removes from end 
+        if self.is_empty(): #empty queue
+            print("Queue Underflow.")
             return None
         
         removed_data = self.head.data
@@ -32,8 +30,7 @@ class Queue:
             
         return removed_data
 
-    def get_front(self):
-        """Returns the front element without removing it."""
+    def get_front(self): #top element of queue
         if self.is_empty():
             return "Queue is Empty"
         return self.head.data
@@ -47,7 +44,7 @@ class Queue:
         while curr:
             elements.append(str(curr.data))
             curr = curr.next
-        print("Front -> " + " -> ".join(elements) + " <- Rear" if elements else "Queue is Empty")
+        print(elements)
 
 
 q = Queue()
@@ -66,4 +63,4 @@ q.display()
 print(f"Removed: {q.dequeue()}")
 q.display()
 
-print(f"Final State (is empty?): {q.is_empty()}")
+print(f"is empty?: {q.is_empty()}")

@@ -1,12 +1,12 @@
 class Node:
     def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
+        self.data = data #value store krega
+        self.next = None #next address
+        self.prev = None #adddres of prev node
 
 class DoublyLinkedList:
     def __init__(self):
-        self.head = None
+        self.head = None #abhi there is no head
 
     def insert_after_node(self, target_data, x):
         temp = self.head
@@ -34,7 +34,7 @@ class DoublyLinkedList:
             self.head = temp.next
             if self.head: self.head.prev = None
         else:
-            for _ in range(pos):
+            for i in range(pos):
                 if temp is None: break
                 temp = temp.next
             

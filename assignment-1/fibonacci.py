@@ -2,7 +2,7 @@
 n=int(input("enter number "))
 
 count=[0]
-def fib_naive(n,count):
+def fib_naive(n,count): #slow bcz it doesnt store calculates again and again
     count[0]+=1
     if n<=1:
         return n
@@ -13,7 +13,7 @@ for i in range(n):
 print("\nCount of operations :",count[0])
 
 memo={}
-def fib_memo(n,count):
+def fib_memo(n,count): #faster cuz it stores the repeated actions
     count[0]+=1
     if n in memo:
         return memo[n]
@@ -25,12 +25,3 @@ def fib_memo(n,count):
 for i in range(n):
     print(fib_memo(i,count),end=" ")
 print("\n ",count[0])
-
-'''
-
-Explanation of Difference:
-Naive Fibonacci is slow because it recalculates the same subproblems multiple times, 
-leading to exponential growth (O(2^n)). Memoization stores previous results in a table, 
-ensuring each subproblem is solved only once, reducing complexity to linear (O(n)).
-
-'''

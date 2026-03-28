@@ -6,7 +6,7 @@ class DynamicArray:
 
     def append(self, value):
         if self.size == self.capacity:
-            self._resize(2 * self.capacity)
+            self._resize(2 * self.capacity) #we 2x the size of that we ddont need to CALCULATE AGain and again..costly
         
         self.array[self.size] = value
         self.size += 1
@@ -14,10 +14,10 @@ class DynamicArray:
 
     def _resize(self, new_capacity):
         print(f"--- Resizing: {self.capacity} -> {new_capacity} ---")
-        new_arr = [None] * new_capacity
+        new_arr = [None] * new_capacity #new array of 2x capacity storing none
         for i in range(self.size):
-            new_arr[i] = self.array[i]
-        self.array = new_arr
+            new_arr[i] = self.array[i] #coping ele of old array to new array
+        self.array = new_arr 
         self.capacity = new_capacity
 
     def pop(self):

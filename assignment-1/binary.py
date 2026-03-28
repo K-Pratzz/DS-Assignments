@@ -4,10 +4,10 @@ def binary(arr,target,low,high):
     mid=(low+high)//2
     if arr[mid]==target:
         return mid
-    elif arr[mid]>target:
+    elif arr[mid]>target: #search in first half
         return binary(arr,target,low,mid-1)
     else:
-        return binary(arr,target,mid+1,high)
+        return binary(arr,target,mid+1,high) #search in 2nd half
 arr=[10,20,30,40,50]
 target=30
 print(binary(arr,target,0,len(arr)-1))
